@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { View, StatusBar } from "react-native";
+import { StatusBar } from "react-native";
 import { Container } from "./../components/Container";
 import { Logo } from "./../components/Logo";
 import { InputWithButton } from "./../components/TextInput";
+import { ClearButton } from "../components/Buttons";
 
 const BASE_CURRENCY = "USD";
 const QUOTE_CURRENCY = "GBP";
@@ -17,6 +18,9 @@ class Home extends Component {
   };
   handleTextChange = text => {
     console.log("change text", text);
+  };
+  handleSwapCurrencies = () => {
+    console.log("press swap");
   };
   render() {
     return (
@@ -35,6 +39,10 @@ class Home extends Component {
           onPress={this.handlePressQuoteCurrency}
           editable={false}
           value={QUOTE_PRICE}
+        />
+        <ClearButton
+          text="Reverse currencies"
+          onPress={this.handleSwapCurrencies}
         />
       </Container>
     );
