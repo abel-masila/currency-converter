@@ -5,6 +5,7 @@ import { Logo } from "./../components/Logo";
 import { InputWithButton } from "./../components/TextInput";
 import { ClearButton } from "../components/Buttons";
 import { LastConverted } from "./../components/Text";
+import { Header } from "../components/Header";
 
 const BASE_CURRENCY = "USD";
 const QUOTE_CURRENCY = "GBP";
@@ -25,10 +26,14 @@ class Home extends Component {
   handleSwapCurrencies = () => {
     console.log("press swap");
   };
+  handleOptionsPress = () => {
+    console.log("press options");
+  };
   render() {
     return (
       <Container>
         <StatusBar translucent={false} barStyle="light-content" />
+        <Header onPress={this.handleOptionsPress} />
         <Logo />
         <InputWithButton
           btnText={BASE_CURRENCY}
