@@ -3,6 +3,7 @@ import { ScrollView, StatusBar, Platform, Linking } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { ListItem, Separator } from "./../components/List";
+import { connectAlert } from "./../components/Alert";
 
 const ICON_COLOR = "#868686";
 const ICON_SIZE = 23;
@@ -13,7 +14,14 @@ class Options extends React.Component {
   };
   handleSitePress = () => {
     //handlebarlabs.com
-    Linking.openURL("http://handlebarlabs.com").catch((e) => alert(e));
+    Linking.openURL("http://handlebarlabs.com").catch((e) => {
+      console.log(e);
+      this.props.alertWithType(
+        "error",
+        "Sorry",
+        "Fixer.io cannot be opened now!"
+      );
+    });
   };
   render() {
     return (
@@ -48,4 +56,4 @@ class Options extends React.Component {
   }
 }
 
-export default Options;
+export default connectAlert(Options);
