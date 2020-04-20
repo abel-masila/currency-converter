@@ -1,7 +1,9 @@
 import React from "react";
 import EStyleSheet from "react-native-extended-stylesheet";
+import { NavigationContainer } from "@react-navigation/native";
 
-import Themes from "./screens/Themes";
+import Navigator from "./config/routes";
+
 EStyleSheet.build({
   $primaryBlue: "#4F6D7A",
   $white: "#FFF",
@@ -15,4 +17,8 @@ EStyleSheet.build({
   $primaryPurple: "#9E768F",
 });
 
-export default () => <Themes />;
+export default () => (
+  <NavigationContainer>
+    <Navigator />
+  </NavigationContainer>
+);

@@ -15,10 +15,10 @@ const CONVERSION_RATE = 0.7974;
 const CONVERSION_DATE = new Date();
 class Home extends Component {
   handlePressBaseCurrency = () => {
-    console.log("press base");
+    this.props.navigation.navigate("CurrencyList", { title: "Base Currency" });
   };
   handlePressQuoteCurrency = () => {
-    console.log("press quote");
+    this.props.navigation.navigate("CurrencyList", { title: "Quote Currency" });
   };
   handleTextChange = (text) => {
     console.log("change text", text);

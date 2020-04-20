@@ -7,7 +7,7 @@ import currencies from "./../data/currencies";
 const CURRENT_CURRENCY = "CAD";
 class CurrencyList extends React.Component {
   handlePress = () => {
-    console.log("row press");
+    this.props.navigation.goBack(null);
   };
   render() {
     return (
