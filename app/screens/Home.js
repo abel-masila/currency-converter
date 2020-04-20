@@ -27,7 +27,7 @@ class Home extends Component {
     console.log("press swap");
   };
   handleOptionsPress = () => {
-    console.log("press options");
+    this.props.navigation.navigate("Options");
   };
   render() {
     return (

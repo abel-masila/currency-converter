@@ -9,7 +9,7 @@ const ICON_SIZE = 23;
 const ICON_PREFIX = Platform.OS === "ios" ? "ios" : "md";
 class Options extends React.Component {
   handleThemesPress = () => {
-    console.log("press themes");
+    this.props.navigation.navigate("Themes");
   };
   handleSitePress = () => {
     console.log("press site");

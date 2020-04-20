@@ -13,7 +13,7 @@ const styles = EStyleSheet.create({
 
 class Themes extends React.Component {
   handleThemePress = (color) => {
-    console.log("press theme", color);
+    this.props.navigation.goBack(null);
   };
   render() {
     return (

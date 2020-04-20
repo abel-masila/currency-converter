@@ -2,7 +2,7 @@ import React from "react";
 import EStyleSheet from "react-native-extended-stylesheet";
 import { NavigationContainer } from "@react-navigation/native";
 
-import Navigator from "./config/routes";
+import MainNavigator from "./config/routes";
 
 EStyleSheet.build({
   $primaryBlue: "#4F6D7A",
@@ -19,6 +19,6 @@ EStyleSheet.build({
 
 export default () => (
   <NavigationContainer>
-    <Navigator />
+    <MainNavigator />
   </NavigationContainer>
 );
