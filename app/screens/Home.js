@@ -7,6 +7,8 @@ import { ClearButton } from "../components/Buttons";
 import { LastConverted } from "./../components/Text";
 import { Header } from "../components/Header";
 
+import { swapCurrency, changeCurrencyAmount } from "./../actions/currencies";
+
 const BASE_CURRENCY = "USD";
 const QUOTE_CURRENCY = "GBP";
 const BASE_PRICE = "100";
@@ -20,11 +22,11 @@ class Home extends Component {
   handlePressQuoteCurrency = () => {
     this.props.navigation.navigate("CurrencyList", { title: "Quote Currency" });
   };
-  handleTextChange = (text) => {
-    console.log("change text", text);
+  handleTextChange = (amount) => {
+    console.log(changeCurrencyAmount(amount));
   };
-  handleSwapCurrencies = () => {
-    console.log("press swap");
+  handleSwapCurrency = () => {
+    console.log(swapCurrency());
   };
   handleOptionsPress = () => {
     this.props.navigation.navigate("Options");
@@ -57,7 +59,7 @@ class Home extends Component {
           />
           <ClearButton
             text="Reverse currencies"
-            onPress={this.handleSwapCurrencies}
+            onPress={this.handleSwapCurrency}
           />
         </KeyboardAvoidingView>
       </Container>
