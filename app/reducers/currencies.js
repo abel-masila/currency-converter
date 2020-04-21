@@ -3,7 +3,7 @@ import { CHANGE_CURRENCY_AMOUNT, SWAP_CURRENCY } from "./../actions/currencies";
 const initialState = {
   baseCurrency: "USD",
   quoteCurrency: "GBP",
-  amout: 100,
+  amount: 100,
   conversions: {},
 };
 
@@ -21,3 +21,5 @@ const reducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;
