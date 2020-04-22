@@ -3,7 +3,7 @@ const initialState = {
   primaryColor: "#4F6D7A",
 };
 
-export default (state = initialState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_PRIMARY_COLOR:
       return { ...state, primaryColor: action.color };
@@ -11,3 +11,5 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+export default reducer;

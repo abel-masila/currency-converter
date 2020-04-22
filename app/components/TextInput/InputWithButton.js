@@ -3,8 +3,8 @@ import { View, Text, TouchableHighlight, TextInput } from "react-native";
 import color from "color";
 
 import styles from "./styles";
-const InputWithButton = props => {
-  const { onPress, btnText, editable = true } = props;
+const InputWithButton = (props) => {
+  const { onPress, btnText, editable = true, textColor } = props;
   const containerStyles = [styles.container];
   if (editable === false) {
     containerStyles.push(styles.containerDisabled);
@@ -12,6 +12,10 @@ const InputWithButton = props => {
   const underlayColor = color(styles.$buttonBackgroundColorBase).darken(
     styles.$buttonBackgroundColorModifier
   );
+  const buttonTextStyles = [styles.btnText];
+  if (textColor) {
+    buttonTextStyles.push({ color: textColor });
+  }
   return (
     <View style={containerStyles}>
       <TouchableHighlight
@@ -19,7 +23,7 @@ const InputWithButton = props => {
         style={styles.btnContainer}
         underlayColor={underlayColor}
       >
-        <Text style={styles.btnText}>{btnText}</Text>
+        <Text style={buttonTextStyles}>{btnText}</Text>
       </TouchableHighlight>
       <View style={styles.border} />
       <TextInput

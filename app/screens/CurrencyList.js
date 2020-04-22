@@ -21,12 +21,14 @@ class CurrencyList extends React.Component {
     this.props.navigation.goBack(null);
   };
   render() {
-    const { baseCurrency, quoteCurrency } = this.props;
+    const { baseCurrency, quoteCurrency, primaryColor } = this.props;
     const { type } = this.props.route.params;
     let comparisonCurrency = baseCurrency;
     if (type === "quote") {
       comparisonCurrency = quoteCurrency;
     }
+
+    console.log(primaryColor);
     return (
       <View style={{ flex: 1 }}>
         <StatusBar barStyle="default" translucent={false} />
@@ -37,6 +39,7 @@ class CurrencyList extends React.Component {
               text={item}
               selected={item === comparisonCurrency}
               onPress={() => this.handlePress(item)}
+              iconBackground={primaryColor}
             />
           )}
           keyExtractor={(item) => item}
@@ -53,6 +56,7 @@ const mapStateToProps = (state) => {
   return {
     baseCurrency,
     quoteCurrency,
+    primaryColor: state.theme.primaryColor,
   };
 };
 export default connect(mapStateToProps, null)(CurrencyList);

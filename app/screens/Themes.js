@@ -17,6 +17,7 @@ class Themes extends React.Component {
   handleThemePress = (color) => {
     const { dispatch } = this.props;
     dispatch(changePrimaryColor(color));
+
     this.props.navigation.goBack(null);
   };
   render() {

@@ -69,7 +69,11 @@ class Logo extends Component {
       styles.containerImage,
       { width: containerImageWidth, height: containerImageWidth },
     ];
-    const imageStyles = [styles.logo, { width: imageWidth }];
+    const imageStyles = [
+      styles.logo,
+      { width: imageWidth },
+      this.props.tintColor ? { tintColor: this.props.tintColor } : null,
+    ];
     return (
       <View style={styles.container}>
         <Animated.View style={containerImageStyles}>
