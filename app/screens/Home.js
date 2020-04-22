@@ -7,6 +7,7 @@ import { InputWithButton } from "./../components/TextInput";
 import { ClearButton } from "../components/Buttons";
 import { LastConverted } from "./../components/Text";
 import { Header } from "../components/Header";
+import { connectAlert } from "./../components/Alert";
 
 import {
   swapCurrency,
@@ -23,6 +24,14 @@ class Home extends Component {
   };
   componentDidMount() {
     this.props.dispatch(getInitialConversion());
+  }
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.currencyError &&
+      nextProps.currencyError !== this.props.currencyError
+    ) {
+      this.props.alertWithType("error", "Error", nextProps.currencyError);
+    }
   }
   handlePressQuoteCurrency = () => {
     this.props.navigation.navigate("CurrencyList", {
@@ -48,6 +57,7 @@ class Home extends Component {
       isFetching,
       lastConvertedDate,
       primaryColor,
+      currencyError,
     } = this.props;
 
     let quotePrice = (amount * conversionRate).toFixed(2);
@@ -106,6 +116,7 @@ const mapStateToProps = (state) => {
       ? new Date(conversionSelector.date)
       : new Date(),
     primaryColor: state.theme.primaryColor,
+    currencyError: state.currencies.error,
   };
 };
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, null)(connectAlert(Home));
