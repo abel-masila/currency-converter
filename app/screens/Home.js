@@ -8,7 +8,11 @@ import { ClearButton } from "../components/Buttons";
 import { LastConverted } from "./../components/Text";
 import { Header } from "../components/Header";
 
-import { swapCurrency, changeCurrencyAmount } from "./../actions/currencies";
+import {
+  swapCurrency,
+  changeCurrencyAmount,
+  getInitialConversion,
+} from "./../actions/currencies";
 
 class Home extends Component {
   handlePressBaseCurrency = () => {
@@ -17,6 +21,9 @@ class Home extends Component {
       type: "base",
     });
   };
+  componentDidMount() {
+    this.props.dispatch(getInitialConversion());
+  }
   handlePressQuoteCurrency = () => {
     this.props.navigation.navigate("CurrencyList", {
       title: "Quote Currency",
