@@ -14,14 +14,16 @@ class Options extends React.Component {
   };
   handleSitePress = () => {
     //handlebarlabs.com
-    Linking.openURL("http://handlebarlabs.com").catch((e) => {
-      console.log(e);
-      this.props.alertWithType(
-        "error",
-        "Sorry",
-        "Fixer.io cannot be opened now!"
-      );
-    });
+    Linking.openURL("https://expo.io/@abel-masila/currencyConverter").catch(
+      (e) => {
+        console.log(e);
+        this.props.alertWithType(
+          "error",
+          "Sorry",
+          "Fixer.io cannot be opened now!"
+        );
+      }
+    );
   };
   render() {
     return (
@@ -40,7 +42,7 @@ class Options extends React.Component {
         />
         <Separator />
         <ListItem
-          text="Fixer.io"
+          text="App"
           onPress={this.handleSitePress}
           customIcon={
             <Ionicons
